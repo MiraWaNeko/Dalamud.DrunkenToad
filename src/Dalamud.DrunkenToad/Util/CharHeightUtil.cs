@@ -77,6 +77,19 @@ namespace Dalamud.DrunkenToad
             return charHeight.MinHeight + Math.Round(height * charHeight.Ratio, 1);
         }
 
+        /// <summary>
+        /// Calc height in centimeters.
+        /// </summary>
+        /// <param name="height">scaler height.</param>
+        /// <param name="raceId">race id.</param>
+        /// <param name="tribeId">tribe id.</param>
+        /// <param name="genderId">gender id.</param>
+        /// <returns>height in centimeters.</returns>
+        public static double CalcCentimeters(byte height, byte raceId, byte tribeId, byte genderId)
+        {
+            return CalcInches(height, raceId, tribeId, genderId) * 2.54d;
+        }
+
         private static CharHeightUtil GetCharHeight(byte raceId, byte tribeId, byte genderId)
         {
             // check tribe variations for hyur
